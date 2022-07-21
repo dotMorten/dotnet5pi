@@ -85,7 +85,7 @@ IF /I "%setupSSH%"=="y" (
     echo "--------------------------------------------------------------"
     echo(
 
-    ssh pi@%pihostname% -oStrictHostKeyChecking=no "mkdir -p ~/.ssh"
+    ssh %piusername%@%pihostname% -oStrictHostKeyChecking=no "mkdir -p ~/.ssh"
 
     echo(
     echo "--------------------------------------------------------------"
@@ -97,7 +97,7 @@ IF /I "%setupSSH%"=="y" (
     echo "--------------------------------------------------------------"
     echo(
 
-    type c:\Users\%username%\.ssh\id_rsa.pub | ssh -oStrictHostKeyChecking=no pi@%pihostname% "cat >> ~/.ssh/authorized_keys"
+    type c:\Users\%username%\.ssh\id_rsa.pub | ssh -oStrictHostKeyChecking=no %piusername%@%pihostname% "cat >> ~/.ssh/authorized_keys"
 
     echo(
     echo "--------------------------------------------------------------"
@@ -107,7 +107,7 @@ IF /I "%setupSSH%"=="y" (
     echo "--------------------------------------------------------------"
     echo(
 
-    ssh pi@%pihostname% "cd ~/ && curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l ~/vsdbg"
+    ssh %piusername%@%pihostname% "cd ~/ && curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l ~/vsdbg"
 
     echo(
     echo "--------------------------------------------------------------"
